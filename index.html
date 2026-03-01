@@ -177,9 +177,9 @@ function typeWriter(element,text,speed=40){
 /* CAP 1 */
 typeWriter(
 document.getElementById("text1"),
-`No hablamos todos los días.
-Pero cuando hablamos…
-todo cambia.
+`Hablamos todos los días.
+ Cuando hablamos…
+ Todo fluye y lo haces sentir especial.
 
 Molestamos.
 Reímos.
@@ -190,7 +190,7 @@ se siente real.`
 );
 
 /* CONTADOR DESDE QUE EMPEZÓ */
-const startDate=new Date("2026-01-03T00:00:00");
+const startDate=new Date("2026-02-22T00:00:00");
 
 function updateCounter(){
     const now=new Date();
@@ -223,10 +223,10 @@ updateCounter();
 function updateValentine(){
     const now=new Date();
     let year=now.getFullYear();
-    let target=new Date(year+"-02-14T00:00:00");
+    let target=new Date(year+"-03-22T00:00:00");
 
     if(now>target){
-        target=new Date((year+1)+"-02-14T00:00:00");
+        target=new Date((year+1)+"-03-22T00:00:00");
     }
 
     const diff=target-now;
@@ -237,7 +237,7 @@ function updateValentine(){
     const s=Math.floor(diff/1000)%60;
 
     document.getElementById("valentineCounter").innerHTML=
-    `<div>Faltan para el 14 de febrero 💌</div>
+    `<div>Faltan el dia especial 💌</div>
      <div style="margin-top:15px">
      <strong>${d}</strong> días 
      <strong>${h}</strong> h 
@@ -297,3 +297,4 @@ function fadeMusic(){
 
 </body>
 </html>
+
