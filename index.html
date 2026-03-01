@@ -3,269 +3,296 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Esto es para ti 🤍</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="icon" href="https://cdn-icons-png.flaticon.com/512/833/833472.png">
+<title>Nuestra Historia</title>
 
 <style>
-
 :root{
+    --bg:#0f0f12;
     --primary:#ff4d6d;
-    --bg1:#6a0592a6;
-    --bg2:#36014b9f;
+    --soft:#ff8fa3;
+    --text:#ffffff;
 }
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+    font-family: "Blackadder ITC", cursive;
 }
 
 body{
-    background:linear-gradient(135deg,var(--bg1),var(--bg2));
-    color:white;
+    background:var(--bg);
+    color:var(--text);
     overflow-x:hidden;
 }
 
-/* INTRO */
-
-#intro{
-    position:fixed;
-    inset:0;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:linear-gradient(135deg,#0f0f14,#1a1a2e);
-    z-index:1000;
-}
-
-#intro h1{
-    font-size:2rem;
-    margin-bottom:20px;
-}
-
-#intro button{
-    padding:12px 30px;
-    border:none;
-    border-radius:30px;
-    background:var(--primary);
-    color:white;
-    font-weight:600;
-    cursor:pointer;
-    transition:.3s;
-}
-
-#intro button:hover{
-    transform:scale(1.05);
-}
-
-/* SECCIONES */
-
-section{
+.section{
     min-height:100vh;
     display:flex;
-    flex-direction:column;
     justify-content:center;
     align-items:center;
     text-align:center;
     padding:40px;
+    position:absolute;
+    width:100%;
+    top:0;
+    left:0;
+    opacity:0;
+    pointer-events:none;
+    transition:0.8s ease;
 }
 
-h2{
-    font-size:2rem;
-    margin-bottom:20px;
+.section.active{
+    opacity:1;
+    pointer-events:auto;
+    position:relative;
 }
 
-p{
-    max-width:600px;
-    line-height:1.6;
-    opacity:.9;
+h1{
+    font-size:2.3rem;
+    margin-bottom:25px;
 }
 
-/* BOTONES */
-
-.btn{
-    margin-top:30px;
-    padding:10px 25px;
-    border-radius:25px;
-    background:var(--primary);
+button{
+    margin-top:35px;
+    padding:14px 30px;
     border:none;
+    border-radius:30px;
+    background:var(--primary);
     color:white;
     cursor:pointer;
-    transition:.3s;
+    font-size:1rem;
+    transition:0.3s;
 }
 
-.btn:hover{
+button:hover{
+    background:var(--soft);
     transform:scale(1.05);
 }
 
-/* CONTADORES */
-
-.counter-container{
-    display:flex;
-    flex-direction:column;
-    gap:30px;
-    margin-top:40px;
-    width:100%;
-    align-items:center;
+.typewriter{
+    max-width:600px;
+    margin:auto;
+    white-space:pre-line;
+    line-height:1.6;
+    font-size:1.1rem;
 }
 
 .counter-box{
-    background:rgba(255,77,109,0.08);
-    backdrop-filter:blur(10px);
+    margin:25px 0;
     padding:25px;
     border-radius:20px;
-    width:90%;
-    max-width:500px;
-    box-shadow:0 10px 30px rgba(0,0,0,.3);
+    background:rgba(255,77,109,0.08);
+    border:1px solid rgba(255,77,109,0.25);
 }
 
 .counter-box strong{
     font-size:1.5rem;
-    color:var(--primary);
-    text-shadow:0 0 15px rgba(255,77,109,.6);
+    color:var(--soft);
 }
 
-.final-message{
-    margin-top:30px;
-    font-size:1.2rem;
-    opacity:.95;
+.glow{
+    color:var(--soft);
+    text-shadow:0 0 20px var(--primary);
 }
 
+.final-content{
+    animation:zoom 8s ease forwards;
+}
+
+@keyframes zoom{
+    from{transform:scale(1);}
+    to{transform:scale(1.05);}
+}
 </style>
 </head>
 <body>
 
-<!-- INTRO -->
-<div id="intro">
-    <h1>Esto no es solo una página…</h1>
-    <p>Léelo con calma 🤍</p>
-    <button onclick="start()">Entrar</button>
-</div>
-
-<!-- CAPÍTULO 1 -->
-<section>
-    <h2>Capítulo 1</h2>
-    <p>
-        No hablamos todos los días…  
-        pero cuando lo hacemos, siempre es diferente.  
-        Siempre hay algo.
-    </p>
-    <button class="btn" onclick="scrollToNext()">Siguiente</button>
-</section>
-
-<!-- CAPÍTULO 2 -->
-<section>
-    <h2>Capítulo 2</h2>
-    <p>
-        No sé exactamente qué somos.  
-        Pero sé que me gusta cómo se siente.  
-        Me gusta cómo me haces sonreír sin darte cuenta.
-    </p>
-    <button class="btn" onclick="scrollToNext()">Siguiente</button>
-</section>
-
-<!-- CAPÍTULO 3 -->
-<section>
-    <h2>Capítulo 3</h2>
-    <p>
-        Tal vez no tengamos un nombre todavía…  
-        pero el tiempo dice más que cualquier palabra.
-    </p>
-
-    <div class="counter-container">
-
-        <!-- Desde que se conocieron -->
-        <div class="counter-box">
-            <h3>Desde que nos conocemos 🤍</h3>
-            <p>
-                <strong id="together-days">0</strong> días,
-                <strong id="together-hours">0</strong> horas,
-                <strong id="together-minutes">0</strong> minutos,
-                <strong id="together-seconds">0</strong> segundos
-            </p>
-        </div>
-
-        <!-- Hasta el 14 -->
-        <div class="counter-box">
-            <h3>Faltan para el 14 de febrero 💌</h3>
-            <p>
-                <strong id="valentine-days">0</strong> días,
-                <strong id="valentine-hours">0</strong> horas,
-                <strong id="valentine-minutes">0</strong> minutos,
-                <strong id="valentine-seconds">0</strong> segundos
-            </p>
-        </div>
-
-    </div>
-
-    <div class="final-message">
-        Y si llegaste hasta aquí…  
-        es porque algo también sientes 🤍
-    </div>
-
-</section>
-
-<!-- AUDIO -->
-<audio id="music" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=romantic-background-112199.mp3" type="audio/mpeg">
+<audio id="bgMusic" loop>
+<source src="music.mp3" type="audio/mpeg">
 </audio>
 
+<section class="section active" id="cap1">
+<div>
+<h1>Capítulo 1</h1>
+<div class="typewriter" id="text1"></div>
+<button onclick="nextSection(2)">Continuar</button>
+</div>
+</section>
+
+<section class="section" id="cap2">
+<div>
+<h1>Capítulo 2</h1>
+<div class="counter-box" id="counter"></div>
+<div class="counter-box" id="valentineCounter"></div>
+<button onclick="nextSection(3)">Continuar</button>
+</div>
+</section>
+
+<section class="section" id="cap3">
+<div>
+<h1>Capítulo 3</h1>
+<div class="typewriter" id="letter"></div>
+<button onclick="startFinal()">Leer el final</button>
+</div>
+</section>
+
+<section class="section" id="cap4">
+<div class="final-content">
+<h1 class="glow">Capítulo Final</h1>
+<div class="typewriter" id="finalText"></div>
+</div>
+</section>
+
 <script>
+const music=document.getElementById("bgMusic");
 
-function start(){
-    document.getElementById("intro").style.display="none";
-    document.getElementById("music").play();
-}
+document.body.addEventListener("click",()=>{
+    music.volume=0.6;
+    music.play().catch(()=>{});
+},{once:true});
 
-function scrollToNext(){
-    window.scrollBy({top:window.innerHeight,behavior:'smooth'});
-}
+function nextSection(num){
+    document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+    document.getElementById("cap"+num).classList.add("active");
 
-/* FECHA CUANDO SE CONOCIERON */
-const togetherDate = new Date("January 3, 2026 00:00:00").getTime();
-
-setInterval(()=>{
-    const now = new Date().getTime();
-    const distance = now - togetherDate;
-
-    const d = Math.floor(distance/(1000*60*60*24));
-    const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-    const m = Math.floor((distance%(1000*60*60))/(1000*60));
-    const s = Math.floor((distance%(1000*60))/1000);
-
-    document.getElementById("together-days").textContent=d;
-    document.getElementById("together-hours").textContent=h;
-    document.getElementById("together-minutes").textContent=m;
-    document.getElementById("together-seconds").textContent=s;
-},1000);
-
-/* 14 DE FEBRERO */
-const nextValentine = new Date("February 14, 2026 00:00:00").getTime();
-
-setInterval(()=>{
-    const now = new Date().getTime();
-    const distance = nextValentine - now;
-
-    if(distance>0){
-        const d = Math.floor(distance/(1000*60*60*24));
-        const h = Math.floor((distance%(1000*60*60*24))/(1000*60*60));
-        const m = Math.floor((distance%(1000*60*60))/(1000*60));
-        const s = Math.floor((distance%(1000*60))/1000);
-
-        document.getElementById("valentine-days").textContent=d;
-        document.getElementById("valentine-hours").textContent=h;
-        document.getElementById("valentine-minutes").textContent=m;
-        document.getElementById("valentine-seconds").textContent=s;
-    }else{
-        document.querySelectorAll(".counter-box")[1].innerHTML="<h3>💘 Es hoy…</h3>";
+    if(num===3){
+        startLetter();
     }
-},1000);
+}
 
+function typeWriter(element,text,speed=40){
+    element.innerHTML="";
+    let i=0;
+    function typing(){
+        if(i<text.length){
+            element.innerHTML+=text.charAt(i);
+            i++;
+            setTimeout(typing,speed);
+        }
+    }
+    typing();
+}
+
+/* CAP 1 */
+typeWriter(
+document.getElementById("text1"),
+`No hablamos todos los días.
+Pero cuando hablamos…
+todo cambia.
+
+Molestamos.
+Reímos.
+Somos tiernos.
+
+Y aunque no tenga nombre lo que somos…
+se siente real.`
+);
+
+/* CONTADOR DESDE QUE EMPEZÓ */
+const startDate=new Date("2026-01-03T00:00:00");
+
+function updateCounter(){
+    const now=new Date();
+    const diff=now-startDate;
+
+    if(diff<0){
+        document.getElementById("counter").innerHTML=
+        "Aún no empieza nuestra historia 💫";
+        return;
+    }
+
+    const d=Math.floor(diff/(1000*60*60*24));
+    const h=Math.floor(diff/(1000*60*60))%24;
+    const m=Math.floor(diff/(1000*60))%60;
+    const s=Math.floor(diff/1000)%60;
+
+    document.getElementById("counter").innerHTML=
+    `<div>Desde que todo empezó 💞</div>
+     <div style="margin-top:15px">
+     <strong>${d}</strong> días 
+     <strong>${h}</strong> h 
+     <strong>${m}</strong> m 
+     <strong>${s}</strong> s
+     </div>`;
+}
+setInterval(updateCounter,1000);
+updateCounter();
+
+/* CONTADOR 14 FEBRERO AUTOMÁTICO */
+function updateValentine(){
+    const now=new Date();
+    let year=now.getFullYear();
+    let target=new Date(year+"-02-14T00:00:00");
+
+    if(now>target){
+        target=new Date((year+1)+"-02-14T00:00:00");
+    }
+
+    const diff=target-now;
+
+    const d=Math.floor(diff/(1000*60*60*24));
+    const h=Math.floor(diff/(1000*60*60))%24;
+    const m=Math.floor(diff/(1000*60))%60;
+    const s=Math.floor(diff/1000)%60;
+
+    document.getElementById("valentineCounter").innerHTML=
+    `<div>Faltan para el 14 de febrero 💌</div>
+     <div style="margin-top:15px">
+     <strong>${d}</strong> días 
+     <strong>${h}</strong> h 
+     <strong>${m}</strong> m 
+     <strong>${s}</strong> s
+     </div>`;
+}
+setInterval(updateValentine,1000);
+updateValentine();
+
+/* CARTA */
+function startLetter(){
+typeWriter(
+document.getElementById("letter"),
+`No sé exactamente qué somos.
+Pero sé que me gusta cómo se siente.
+
+Me gusta cuando coincidimos.
+Cuando nos entendemos sin decir mucho.
+Cuando molestamos como si nada…
+pero sabemos que hay algo más.
+
+No quiero apresurarlo.
+Solo quiero seguir descubriéndolo contigo.`
+);
+}
+
+/* FINAL */
+function startFinal(){
+    nextSection(4);
+    const finalText=document.getElementById("finalText");
+
+    setTimeout(()=>{
+        finalText.innerHTML=`No sé qué vaya a pasar.
+
+No sé qué nombre tiene lo nuestro…
+
+<span class="glow">Pero tiene algo.</span>
+
+Y quiero descubrir qué es… contigo.`;
+
+        fadeMusic();
+    },1000);
+}
+
+function fadeMusic(){
+    let fade=setInterval(()=>{
+        if(music.volume>0.05){
+            music.volume-=0.05;
+        }else{
+            music.volume=0;
+            clearInterval(fade);
+        }
+    },200);
+}
 </script>
 
 </body>
